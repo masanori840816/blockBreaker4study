@@ -7,6 +7,7 @@
 //
 
 #include "PlayApp.h"
+#include "blockManager.h"
 
 bool isStarted;
 float fltPadX;
@@ -16,6 +17,7 @@ float fltBallX;
 float fltBallY;
 float fltBallEngineX;
 float fltBallEngineY;
+BlockManager blcManager;
 
 void PlayApp::setup() {
     isStarted = false;
@@ -28,6 +30,8 @@ void PlayApp::setup() {
     fltBallY = (float)ofGetHeight() - 35;
     fltBallEngineX = 1.2f;
     fltBallEngineY = 1.2f;
+    
+    blcManager.createBlocks();
 }
 void PlayApp::update(){
     if(isStarted){
@@ -60,6 +64,16 @@ void PlayApp::draw() {
     
     ofSetColor(0,0,255);
     ofCircle(fltBallX, fltBallY, 5);
+    
+    for (int i=0;i<=blcManager.getIntBlockCount() - 1; i++){
+        ofSetColor(255,0,0);
+        
+        if(blcManager.getIsBroke()[i]){
+            ofRect(blcManager.getBlockX()[i], blcManager.getBlockY()[i], BLOCK_WIDTH, BLOCK_HEIGHT);
+            
+            
+        }
+    }
 }
 
 //--------------------------------------------------------------

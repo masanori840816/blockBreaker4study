@@ -6,3 +6,10 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 #endif
+
+#define BLOCK_COLUMN_COUNT 10
+#define BLOCK_COLUMN_FROM 10
+#define BLOCK_ROW_COUNT 10
+#define BLOCK_ROW_FROM 70
+#define BLOCK_HEIGHT 15
+#define BLOCK_WIDTH 30
