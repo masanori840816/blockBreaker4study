@@ -1,16 +1,15 @@
 //
-//  MainViewController.h
+//  startViewController.h
 //  blockBreaker
 //
-//  Created by masanori on 2014/01/26.
+//  Created by masanori on 2014/02/02.
 //
 //
 
 #import <UIKit/UIKit.h>
 #import "PlayViewController.h"
-#import "PlayApp.h"
-
-@interface MainViewController : UITableViewController
+#import "playApp.h"
+@interface startViewController : UITableViewController
 @property (retain, nonatomic) IBOutlet UIButton *btnStart;
 - (IBAction)btnStartTouched:(id)sender;
 

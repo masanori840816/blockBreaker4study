@@ -1,18 +1,18 @@
 //
-//  MainViewController.m
+//  startViewController.m
 //  blockBreaker
 //
-//  Created by masanori on 2014/01/26.
+//  Created by masanori on 2014/02/02.
 //
 //
 
-#import "MainViewController.h"
+#import "startViewController.h"
 
-@interface MainViewController ()
+@interface startViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation startViewController
 
 - (void)viewDidLoad
 {
@@ -23,15 +23,15 @@
 {
     [super didReceiveMemoryWarning];
 }
-
 - (void)dealloc {
     [_btnStart release];
     [super dealloc];
 }
 - (IBAction)btnStartTouched:(id)sender {
-    PlayViewController *playController;
-    playController = [[[PlayViewController alloc] initWithFrame:[[UIScreen mainScreen] bounds]
+    playViewController *playController;
+    playController = [[[playViewController alloc] initWithFrame:[[UIScreen mainScreen] bounds]
                                                             app:new PlayApp()] autorelease];
     [self presentViewController: playController animated:YES completion: nil];
+
 }
 @end

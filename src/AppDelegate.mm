@@ -1,21 +1,21 @@
 //
-//  AppDelegate.m
+//  appDelegate.mm
 //  blockBreaker
 //
-//  Created by masanori on 2014/01/26.
+//  Created by masanori on 2014/02/02.
 //
 //
 
-#import "AppDelegate.h"
+#include "appDelegate.h"
 
-@implementation AppDelegate
+@implementation appDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [super applicationDidFinishLaunching:application];
     
-    UIStoryboard *sbdMainView = [UIStoryboard storyboardWithName:@"MainView" bundle:nil];
-    MainViewController *mainView = [sbdMainView instantiateInitialViewController];
-    [self.window setRootViewController:mainView];
+    UIStoryboard *sbdMainView = [UIStoryboard storyboardWithName:@"startView" bundle:nil];
+    startViewController *startView = [sbdMainView instantiateInitialViewController];
+    [self.window setRootViewController:startView];
     
     return YES;
 }
@@ -23,5 +23,4 @@
 - (void) dealloc {
     [super dealloc];
 }
-
 @end

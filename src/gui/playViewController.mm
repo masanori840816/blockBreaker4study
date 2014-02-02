@@ -1,18 +1,14 @@
 //
-//  PlayViewController.m
+//  playViewController.m
 //  blockBreaker
 //
-//  Created by masanori on 2014/01/26.
+//  Created by masanori on 2014/02/02.
 //
 //
 
-#import "PlayViewController.h"
+#import "playViewController.h"
 
-@interface PlayViewController ()
-
-@end
-
-@implementation PlayViewController
+@implementation playViewController
 - (id) initWithFrame:(CGRect)frame app:(ofxiPhoneApp *)app {
     
     ofxiPhoneGetOFWindow()->setOrientation( OF_ORIENTATION_DEFAULT );   //-- default portait orientation.

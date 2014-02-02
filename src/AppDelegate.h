@@ -1,14 +1,14 @@
 //
-//  AppDelegate.h
+//  appDelegate.h
 //  blockBreaker
 //
-//  Created by masanori on 2014/01/26.
+//  Created by masanori on 2014/02/02.
 //
 //
 
 #import "ofxiPhoneAppDelegate.h"
-#import "MainViewController.h"
+#import "startViewController.h"
 
-@interface AppDelegate : ofxiPhoneAppDelegate
+@interface appDelegate : ofxiPhoneAppDelegate
 
 @end

@@ -1,31 +1,33 @@
 //
-//  blockManager.cpp
+//  manageBlocks.mm
 //  blockBreaker
 //
-//  Created by masanori on 2014/01/29.
+//  Created by masanori on 2014/02/02.
 //
 //
 
-#include "blockManager.h"
+#include "manageBlocks.h"
+
+using namespace std;
 
 int intBlockCount;
 BOOL *isBrokes;
 float *fltBlockX;
 float *fltBlockY;
-int BlockManager::getIntBlockCount(){
+int ManageBlocks::getIntBlockCount(){
     return intBlockCount;
 }
-BOOL *BlockManager::getIsBroke(){
+BOOL *ManageBlocks::getIsBroke(){
     return isBrokes;
 }
-float *BlockManager::getBlockX(){
+float *ManageBlocks::getBlockX(){
     return fltBlockX;
 }
-float *BlockManager::getBlockY(){
+float *ManageBlocks::getBlockY(){
     return fltBlockY;
 }
 
-void BlockManager::createBlocks(){
+void ManageBlocks::createBlocks(){
     intBlockCount = BLOCK_COLUMN_COUNT * BLOCK_ROW_COUNT;
     
     int intColumn = BLOCK_COLUMN_FROM;

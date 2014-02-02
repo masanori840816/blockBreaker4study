@@ -1,13 +1,11 @@
 //
-//  PlayApp.m
+//  playApp.mm
 //  blockBreaker
 //
-//  Created by masanori on 2014/01/26.
+//  Created by masanori on 2014/02/02.
 //
 //
-
-#include "PlayApp.h"
-#include "blockManager.h"
+#include "playApp.h"
 
 bool isStarted;
 float fltPadX;
@@ -17,7 +15,7 @@ float fltBallX;
 float fltBallY;
 float fltBallEngineX;
 float fltBallEngineY;
-BlockManager blcManager;
+ManageBlocks blcManager;
 
 void PlayApp::setup() {
     isStarted = false;
@@ -132,4 +130,3 @@ void PlayApp::deviceOrientationChanged(int newOrientation){
 void PlayApp::touchCancelled(ofTouchEventArgs& args){
     
 }
-

@@ -1,21 +1,19 @@
 //
-//  blockManager.h
+//  manageBlocks.h
 //  blockBreaker
 //
-//  Created by masanori on 2014/01/29.
+//  Created by masanori on 2014/02/02.
 //
 //
 
-#ifndef __blockBreaker__blockManager__
-#define __blockBreaker__blockManager__
+#ifndef __blockBreaker__manageBlocks__
+#define __blockBreaker__manageBlocks__
 
 #include <iostream>
 
-#endif 
+#endif
 
-using namespace std;
-
-class BlockManager{
+class ManageBlocks{
 public:
     int getIntBlockCount();
     BOOL *getIsBroke();
