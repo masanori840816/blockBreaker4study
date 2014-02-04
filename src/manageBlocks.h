@@ -16,8 +16,11 @@
 class ManageBlocks{
 public:
     int getIntBlockCount();
-    BOOL *getIsBroke();
+    BOOL *getIsBroken();
+    BOOL getIsXChanged();
+    BOOL getIsYChanged();
     float *getBlockX();
     float *getBlockY();
     void createBlocks();
+    BOOL checkBumped(float fltBallX,float fltBallY,float fltBlockX,float fltBlockY);
 };

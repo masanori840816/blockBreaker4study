@@ -15,7 +15,7 @@ float fltBallX;
 float fltBallY;
 float fltBallEngineX;
 float fltBallEngineY;
-ManageBlocks blcManager;
+ManageBlocks mngBlocks;
 
 void PlayApp::setup() {
     isStarted = false;
@@ -29,7 +29,7 @@ void PlayApp::setup() {
     fltBallEngineX = 1.2f;
     fltBallEngineY = 1.2f;
     
-    blcManager.createBlocks();
+    mngBlocks.createBlocks();
 }
 void PlayApp::update(){
     if(isStarted){
@@ -50,7 +50,7 @@ void PlayApp::moveBall(){
     }
     // PadにぶつかったらY軸の+-を逆にする
     if((fltPadX <= fltBallX)&&(fltBallX <= fltPadX + fltPadWidth)
-       &&(fltBallY == fltPadY)){
+       &&(fltPadY <= fltBallY)&&(fltBallY <= fltPadY + PAD_HEIGHT)){
         fltBallEngineY = fltBallEngineY * -1;
     }
 }
@@ -58,18 +58,29 @@ void PlayApp::moveBall(){
 //--------------------------------------------------------------
 void PlayApp::draw() {
     ofSetColor(0, 0, 0);
-    ofRect(fltPadX , fltPadY , fltPadWidth, 10);
+    ofRect(fltPadX , fltPadY , fltPadWidth, PAD_HEIGHT);
     
     ofSetColor(0,0,255);
     ofCircle(fltBallX, fltBallY, 5);
     
-    for (int i=0;i<=blcManager.getIntBlockCount() - 1; i++){
+    
+    
+    for (int i=0;i<=mngBlocks.getIntBlockCount() - 1; i++){
         ofSetColor(255,0,0);
         
-        if(blcManager.getIsBroke()[i]){
-            ofRect(blcManager.getBlockX()[i], blcManager.getBlockY()[i], BLOCK_WIDTH, BLOCK_HEIGHT);
+        if(!mngBlocks.getIsBroken()[i]){
+            ofRect(mngBlocks.getBlockX()[i], mngBlocks.getBlockY()[i], BLOCK_WIDTH, BLOCK_HEIGHT);
             
-            
+            // BallがブロックにぶつかったらStatusを変更する
+            if(mngBlocks.checkBumped(fltBallX, fltBallY, mngBlocks.getBlockX()[i], mngBlocks.getBlockY()[i])){
+                mngBlocks.getIsBroken()[i] = true;
+                
+                if(mngBlocks.getIsXChanged()){
+                    fltBallEngineX = fltBallEngineX * -1;
+                }else if(mngBlocks.getIsYChanged()){
+                    fltBallEngineY = fltBallEngineY * -1;
+                }
+            }
         }
     }
 }
@@ -91,7 +102,7 @@ void PlayApp::touchMoved(ofTouchEventArgs &touch){
 }
 void PlayApp::followMousePosition(){
     if((float)ofGetHeight() /2 < mouseY){
-		fltPadX = mouseX + fltPadWidth / 2;
+		fltPadX = mouseX - fltPadWidth / 2;
 	}
 }
 

@@ -13,3 +13,4 @@
 #define BLOCK_ROW_FROM 70
 #define BLOCK_HEIGHT 15
 #define BLOCK_WIDTH 30
+#define PAD_HEIGHT 10
